@@ -1,159 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ATIP-AI Mental Wellness Companion">
-  <title>ATIP-AI | Mental Wellness Companion</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6c4ee8" />
+  <title>ATIP-AI Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="page-shell" id="app">
-    <header class="brand">
-      <img class="brand-logo" src="assets/atip-logo.svg" alt="ATIP-AI logo">
-      <div>
-        <h1>ATIP-AI</h1>
-        <p>Your AI Mental Wellness Companion</p>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><span>✣</span></div>
+        <div>
+          <h1>ATIP-AI</h1>
+          <p>Your AI Mental<br>Wellness Companion</p>
+        </div>
       </div>
-    </header>
 
-    <section class="auth-layout">
-      <div class="form-panel">
-        <!-- SIGN UP -->
-        <div class="auth-view" id="signupView">
-          <h2>Create your account</h2>
-          <p class="intro">Start your personalized wellness<br>journey with ATIP-AI.</p>
+      <nav class="nav-list" aria-label="Main navigation">
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">⌂</span><span>Dashboard</span></button>
+        <button class="nav-item" data-view="live"><span class="nav-icon">▣</span><span>Live Detection</span></button>
+        <button class="nav-item" data-view="insights"><span class="nav-icon">♮</span><span>My Insights</span></button>
+        <button class="nav-item" data-view="stress"><span class="nav-icon">♧</span><span>Stress Management</span></button>
+        <button class="nav-item" data-view="assistant"><span class="nav-icon">▢</span><span>AI Assistant</span></button>
+        <button class="nav-item" data-view="wellness"><span class="nav-icon">⌁</span><span>Wellness Activities</span></button>
+        <button class="nav-item" data-view="resources"><span class="nav-icon">▤</span><span>Resources</span></button>
+        <button class="nav-item" data-view="history"><span class="nav-icon">◷</span><span>History</span></button>
+        <button class="nav-item" data-view="profile"><span class="nav-icon">♙</span><span>Profile</span></button>
+        <button class="nav-item" data-view="settings"><span class="nav-icon">⚙</span><span>Settings</span></button>
+      </nav>
 
-          <form id="signupForm" novalidate>
-            <label class="field">
-              <span class="field-icon">♙</span>
-              <input type="text" id="fullName" placeholder="Full name" autocomplete="name">
-            </label>
+      <div class="sidebar-support">
+        <div class="cloud-illustration">☁</div>
+        <p>You’re not alone.<br>We’re here for you.</p>
+        <span>♥</span>
+      </div>
+    </aside>
 
-            <label class="field">
-              <span class="field-icon">✉</span>
-              <input type="email" id="signupEmail" placeholder="Email address" autocomplete="email">
-            </label>
+    <main class="main">
+      <header class="topbar">
+        <div class="mobile-title"><button id="menuBtn" class="icon-btn">☰</button><strong>ATIP-AI</strong></div>
+        <div class="greeting">
+          <h2 id="welcomeGreeting">Hello, User! <span>👋</span></h2>
+          <p id="welcomeSubtext">Welcome back to ATIP-AI. Let’s take care of your mind and well-being.</p>
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn notification" id="notificationBtn" title="Notifications">♧<b>3</b></button>
+          <div class="profile-mini" id="profileMenuBtn">
+            <div class="avatar">👩🏻</div>
+            <div><strong id="profileName">User</strong><small>Free Plan</small></div>
+            <span>⌄</span>
+          </div>
+          <div class="date-card"><span>▣</span><div id="dateCardText">Loading date...<br><small id="dayCardText">Today</small></div></div>
+        </div>
+      </header>
 
-            <label class="field">
-              <span class="field-icon">♙</span>
-              <input type="password" id="signupPassword" placeholder="Create password" autocomplete="new-password">
-              <button class="eye" type="button" data-target="signupPassword" aria-label="Show password">◉</button>
-            </label>
+      <section id="view-dashboard" class="view active-view">
+        <div class="stat-grid">
+          <article class="stat-card"><div class="stat-icon orange">☺</div><div><small>Current Emotion</small><strong id="emotionStat">No data yet</strong><p id="emotionSub">Start a detection session</p></div></article>
+          <article class="stat-card"><div class="stat-icon purple">★</div><div><small>Confidence Score</small><strong id="confidenceStat">--</strong><p>No data yet</p></div></article>
+          <article class="stat-card"><div class="stat-icon green">♧</div><div><small>Stress Level</small><strong id="stressStat">No data yet</strong><p>Start a detection session</p></div></article>
+          <article class="stat-card"><div class="stat-icon violet">◷</div><div><small>Session Time</small><strong id="timerStat">00:00:00</strong><p id="sessionSub">No active session</p></div></article>
+        </div>
 
-            <label class="field">
-              <span class="field-icon">♙</span>
-              <input type="password" id="confirmPassword" placeholder="Confirm password" autocomplete="new-password">
-              <button class="eye" type="button" data-target="confirmPassword" aria-label="Show password">◉</button>
-            </label>
+        <div class="dashboard-grid">
+          <article class="hero-card">
+            <div class="hero-copy">
+              <div class="eyebrow"><span class="brain-dot">✣</span> Live Detection <span class="live-pill"><i></i> Live</span></div>
+              <h3>Understand your emotions<br>and stress in real-time.</h3>
+              <p>ATIP-AI uses AI-assisted analysis to help you reflect on facial expressions and emotional well-being.</p>
+              <button class="primary-btn" id="startHero"><span>▣</span> Start Live Detection</button>
+              <small class="privacy">♙ Your data is private and secure.</small>
+            </div>
+            <div class="face-art" aria-hidden="true">
+              <div class="scan-corners"></div>
+              <div class="face-circle"></div>
+              <div class="face">👩🏻</div>
+              <div class="mesh-lines"></div>
+              <div class="signal">〰</div>
+            </div>
+            <div class="hero-metrics">
+              <div><span>☺</span><small>Emotion</small><strong id="heroEmotion">--</strong></div>
+              <div><span>♧</span><small>Stress</small><strong id="heroStress">--</strong></div>
+              <div><span>☻</span><small>Confidence</small><strong id="heroConfidence">--%</strong></div>
+            </div>
+          </article>
 
-            <div class="privacy-box">
-              <span class="privacy-icon">♢</span>
-              <div>
-                <strong>Your data is private and secure.</strong>
-                <span>We only use it to help you better.</span>
+          <div class="right-stack">
+            <article class="recommend-card">
+              <div class="card-heading"><strong>✦ AI Recommendation</strong><span class="new-pill">New</span></div>
+              <div class="rec-empty"><div class="rec-icon">✣</div><strong id="recTitle">No recommendation yet</strong><p id="recText">Complete a live detection session to get personalized suggestions.</p><button class="outline-btn" id="startRec">Start Detection</button></div>
+            </article>
+            <article class="quick-card">
+              <div class="card-heading"><strong>Quick Wellness Activities</strong></div>
+              <div class="activity-row">
+                <button class="activity breathing" data-activity="Breathing"><b>≋</b><span>Breathing<small>3 min</small><em>Calm your mind</em></span></button>
+                <button class="activity mind" data-activity="Mindfulness"><b>♟</b><span>Mindfulness<small>5 min</small><em>Be present</em></span></button>
+                <button class="activity reflect" data-activity="Reflection"><b>▤</b><span>Reflection<small>2 min</small><em>Write your feelings</em></span></button>
               </div>
-            </div>
-
-            <button class="primary-btn" type="submit">
-              <span>Create Account</span>
-              <b>→</b>
-            </button>
-          </form>
-
-          <p class="switch-text">Already have an account?
-            <button class="link-btn" id="showLogin">Sign in</button>
-          </p>
-        </div>
-
-        <!-- LOGIN -->
-        <div class="auth-view hidden" id="loginView">
-          <h2>Welcome back!</h2>
-          <p class="intro">Sign in to continue your journey<br>towards a healthier mind.</p>
-
-          <form id="loginForm" novalidate>
-            <label class="field">
-              <span class="field-icon">✉</span>
-              <input type="email" id="loginEmail" placeholder="Email address" autocomplete="email">
-            </label>
-
-            <label class="field">
-              <span class="field-icon">♙</span>
-              <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password">
-              <button class="eye" type="button" data-target="loginPassword" aria-label="Show password">◉</button>
-            </label>
-
-            <div class="remember-row">
-              <label class="remember">
-                <input type="checkbox" id="rememberMe">
-                <span>Remember me</span>
-              </label>
-              <button class="forgot" type="button" id="forgotPassword">Forgot password?</button>
-            </div>
-
-            <button class="primary-btn" type="submit">
-              <span>Sign In</span>
-              <b>→</b>
-            </button>
-          </form>
-
-          <div class="social-area">
-            <div class="or"><span>or continue with</span></div>
-            <div class="social-buttons">
-              <button class="social facebook" type="button" data-provider="Facebook" aria-label="Continue with Facebook">f</button>
-              <button class="social gmail" type="button" data-provider="Gmail" aria-label="Continue with Gmail">M</button>
-              <button class="social discord" type="button" data-provider="Discord" aria-label="Continue with Discord">☁</button>
-            </div>
-          </div>
-
-          <p class="switch-text">Don't have an account?
-            <button class="link-btn" id="showSignup">Sign up</button>
-          </p>
-
-          <div class="quote">
-            <div class="quote-heart">♥</div>
-            <div>
-              <p>“Small steps today lead to a<br>healthier mind tomorrow.”</p>
-              <small>Take care of your mind. You matter.</small>
-            </div>
+            </article>
           </div>
         </div>
-      </div>
 
-      <div class="visual-panel">
-        <div class="illustration-glow"></div>
-        <img id="mainIllustration" src="assets/signup-illustration.svg" alt="ATIP-AI wellness illustration">
-      </div>
-    </section>
+        <div class="lower-grid">
+          <article class="panel trend-panel"><div class="panel-head"><strong>Emotional Trend ⓘ</strong><div class="tabs"><button class="selected">7 Days</button><button>30 Days</button><button>All Time</button></div></div><div class="chart-empty"><div class="chart-icon">⌁</div><strong>No emotional data yet</strong><p>Start a live detection session to<br>see your emotional trend.</p><div class="axis"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div></div></article>
+          <article class="panel stress-panel"><div class="panel-head"><strong>Stress Overview ⓘ</strong></div><div class="gauge"><div class="gauge-number" id="gaugeNumber">--<small>No data</small></div></div><strong>No stress data yet</strong><p>Complete a session to see your<br>stress overview.</p></article>
+          <article class="panel history-panel"><div class="panel-head"><strong>Session History ⓘ</strong><button class="text-btn" data-view="history">View All</button></div><div class="history-empty"><div class="history-icon">◷</div><strong id="historyTitle">No sessions yet</strong><p>Your detection sessions will appear<br>here after you use Live Detection.</p><button class="outline-btn" id="historyStart">Start Live Detection</button></div></article>
+        </div>
 
-    <footer class="features">
-      <div class="feature">
-        <div class="feature-icon">♡</div>
-        <strong>AI-Powered</strong>
-        <span>Emotional insights<br>in real-time</span>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">☼</div>
-        <strong>Stress Management</strong>
-        <span>Tools and activities<br>for a calm mind</span>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">▤</div>
-        <strong>Personalized</strong>
-        <span>Recommendations<br>just for you</span>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">♢</div>
-        <strong>Privacy First</strong>
-        <span>Your data stays<br>with you</span>
-      </div>
-    </footer>
-  </main>
+        <div class="quote-banner"><span>♥</span><div>“Small steps today lead to a healthier mind tomorrow.”<small>Take care of your mind. You matter.</small></div><span class="plant">♧</span></div>
+      </section>
 
-  <div class="toast" id="toast"></div>
+      <section id="view-live" class="view">
+        <div class="page-title"><div><span class="eyebrow">✣ LIVE DETECTION</span><h2>Real-time emotional check-in</h2><p>Turn on your camera for a mirrored selfie preview and live session metrics.</p></div><span class="status-badge" id="cameraStatus">Camera off</span></div>
+        <div class="live-layout">
+          <article class="camera-card">
+            <div class="camera-toolbar"><strong>Selfie Camera</strong><button class="small-btn" id="flipCamera">↔ Mirror</button></div>
+            <div class="camera-stage" id="cameraStage"><video id="cameraVideo" autoplay playsinline muted></video><div class="camera-placeholder" id="cameraPlaceholder"><div>▣</div><strong>Camera is ready</strong><p>Press Start Camera to begin.</p></div><div class="face-guide"></div><div class="scan-line" id="scanLine"></div></div>
+            <div class="camera-controls"><button class="primary-btn" id="cameraStart">▣ Start Camera</button><button class="danger-btn" id="cameraStop">■ Stop</button></div>
+            <p class="camera-note">Camera access is handled by your browser. The preview is mirrored like a selfie camera.</p>
+          </article>
+          <article class="live-metrics-card"><div class="card-heading"><strong>Live Metrics</strong><span class="live-pill"><i></i> Live</span></div><div class="metric-big"><small>Detected Emotion</small><strong id="liveEmotion">Waiting…</strong><span id="liveConfidence">Confidence --%</span></div><div class="meter"><label>Stress level <b id="liveStressText">--</b></label><div><i id="stressBar"></i></div></div><div class="metric-list"><div><span>Session</span><b id="liveTimer">00:00:00</b></div><div><span>Face status</span><b id="faceStatus">Not detected</b></div><div><span>Mirror</span><b id="mirrorStatus">On</b></div></div><button class="outline-btn full" id="saveSession">Save Session</button></article>
+        </div>
+      </section>
+
+      <section id="view-insights" class="view generic-view"><div class="page-title"><div><span class="eyebrow">✦ INSIGHTS</span><h2>Your emotional insights</h2><p>Review your recent patterns and small wins.</p></div></div><div class="insight-grid"><article class="feature-card"><span>☺</span><h3>Emotion snapshot</h3><strong id="insightEmotion">No session data</strong><p>Start a Live Detection session to build your insight history.</p></article><article class="feature-card"><span>◈</span><h3>Confidence</h3><strong id="insightConfidence">--%</strong><p>Your current confidence metric will appear here.</p></article><article class="feature-card"><span>♧</span><h3>Stress pattern</h3><strong id="insightStress">No data</strong><p>Use the app regularly to see trends over time.</p></article></div></section>
+
+      <section id="view-stress" class="view generic-view"><div class="page-title"><div><span class="eyebrow">♧ STRESS MANAGEMENT</span><h2>Calm your mind</h2><p>Simple tools you can start in a few seconds.</p></div></div><div class="tool-grid"><button class="wellness-tool" data-activity="Breathing"><span>≋</span><h3>Box Breathing</h3><p>Slow your breathing with a guided 4-count rhythm.</p><b>Start →</b></button><button class="wellness-tool" data-activity="Mindfulness"><span>♟</span><h3>Mindfulness</h3><p>A short grounding exercise to bring attention to the present.</p><b>Start →</b></button><button class="wellness-tool" data-activity="Reflection"><span>▤</span><h3>Reflection</h3><p>Write one thing you feel and one thing you need.</p><b>Start →</b></button></div></section>
+
+      <section id="view-assistant" class="view generic-view"><div class="page-title"><div><span class="eyebrow">✦ AI ASSISTANT</span><h2>Talk with ATIP-AI</h2><p>A gentle space for reflection. This demo keeps the conversation in your browser.</p></div></div><article class="chat-card"><div class="chat-messages" id="chatMessages"><div class="bubble ai">Hi, Trinalyn. How are you feeling right now?</div></div><form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Type how you're feeling…" autocomplete="off"><button>Send</button></form></article></section>
+
+      <section id="view-wellness" class="view generic-view"><div class="page-title"><div><span class="eyebrow">⌁ WELLNESS ACTIVITIES</span><h2>Quick activities</h2><p>Pick a short activity that matches the moment.</p></div></div><div class="tool-grid"><button class="wellness-tool" data-activity="Breathing"><span>≋</span><h3>3-minute Breathing</h3><p>Follow a calm inhale and exhale cycle.</p><b>Begin →</b></button><button class="wellness-tool" data-activity="Mindfulness"><span>♟</span><h3>5-minute Mindfulness</h3><p>Notice your surroundings without judging them.</p><b>Begin →</b></button><button class="wellness-tool" data-activity="Reflection"><span>▤</span><h3>2-minute Reflection</h3><p>Write down what is on your mind.</p><b>Begin →</b></button></div></section>
+
+      <section id="view-resources" class="view generic-view"><div class="page-title"><div><span class="eyebrow">▤ RESOURCES</span><h2>Wellness resources</h2><p>Helpful reading prompts for everyday self-care.</p></div></div><div class="resource-grid"><article><span>01</span><h3>Understanding stress</h3><p>Learn to notice physical, emotional, and behavioral signs of stress.</p><button class="text-btn">Read more →</button></article><article><span>02</span><h3>Healthy routines</h3><p>Small routines can create a steadier rhythm for rest and focus.</p><button class="text-btn">Read more →</button></article><article><span>03</span><h3>Emotional check-ins</h3><p>Use a simple daily question: “What do I need today?”</p><button class="text-btn">Read more →</button></article></div></section>
+
+      <section id="view-history" class="view generic-view"><div class="page-title"><div><span class="eyebrow">◷ HISTORY</span><h2>Session history</h2><p>Your sessions are stored locally in this demo.</p></div><button class="outline-btn" id="clearHistory">Clear History</button></div><div class="history-table" id="historyTable"><div class="history-row head"><span>Date</span><span>Emotion</span><span>Confidence</span><span>Stress</span><span>Duration</span></div><div id="historyRows"><div class="no-history">No saved sessions yet.</div></div></div></section>
+
+      <section id="view-profile" class="view generic-view"><div class="page-title"><div><span class="eyebrow">♙ PROFILE</span><h2>Your profile</h2><p>Manage your basic account details.</p></div></div><article class="settings-card profile-form"><div class="large-avatar">👩🏻</div><label>Full name<input value="Trinalyn Hilario"></label><label>Plan<select><option>Free Plan</option><option>Plus Plan</option></select></label><button class="primary-btn" id="saveProfile">Save Profile</button></article></section>
+
+      <section id="view-settings" class="view generic-view"><div class="page-title"><div><span class="eyebrow">⚙ SETTINGS</span><h2>App settings</h2><p>Customize the dashboard experience.</p></div></div><article class="settings-card"><label class="setting-row"><span><strong>Animated interface</strong><small>Use gentle motion throughout the dashboard.</small></span><input type="checkbox" id="animationsToggle" checked><i class="toggle"></i></label><label class="setting-row"><span><strong>Notifications</strong><small>Show reminder badges in the header.</small></span><input type="checkbox" id="notificationsToggle" checked><i class="toggle"></i></label><label class="setting-row"><span><strong>Mirror selfie camera</strong><small>Keep the live preview horizontally mirrored.</small></span><input type="checkbox" id="mirrorToggle" checked><i class="toggle"></i></label></article></section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal" id="activityModal"><div class="modal-box"><button class="modal-close" id="modalClose">×</button><div id="modalIcon" class="modal-icon">≋</div><h2 id="modalTitle">Breathing</h2><p id="modalText">Get comfortable. Inhale slowly…</p><div class="breath-circle" id="breathCircle"></div><div class="modal-timer" id="activityTimer">03:00</div><button class="primary-btn" id="activityStart">Start</button></div></div>
   <script src="script.js"></script>
 </body>
 </html>
