@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ATIP-AI Mental Wellness Companion">
+  <title>ATIP-AI | Mental Wellness Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell" id="app">
+    <header class="brand">
+      <img class="brand-logo" src="assets/atip-logo.svg" alt="ATIP-AI logo">
+      <div>
+        <h1>ATIP-AI</h1>
+        <p>Your AI Mental Wellness Companion</p>
+      </div>
+    </header>
+
+    <section class="auth-layout">
+      <div class="form-panel">
+        <!-- SIGN UP -->
+        <div class="auth-view" id="signupView">
+          <h2>Create your account</h2>
+          <p class="intro">Start your personalized wellness<br>journey with ATIP-AI.</p>
+
+          <form id="signupForm" novalidate>
+            <label class="field">
+              <span class="field-icon">♙</span>
+              <input type="text" id="fullName" placeholder="Full name" autocomplete="name">
+            </label>
+
+            <label class="field">
+              <span class="field-icon">✉</span>
+              <input type="email" id="signupEmail" placeholder="Email address" autocomplete="email">
+            </label>
+
+            <label class="field">
+              <span class="field-icon">♙</span>
+              <input type="password" id="signupPassword" placeholder="Create password" autocomplete="new-password">
+              <button class="eye" type="button" data-target="signupPassword" aria-label="Show password">◉</button>
+            </label>
+
+            <label class="field">
+              <span class="field-icon">♙</span>
+              <input type="password" id="confirmPassword" placeholder="Confirm password" autocomplete="new-password">
+              <button class="eye" type="button" data-target="confirmPassword" aria-label="Show password">◉</button>
+            </label>
+
+            <div class="privacy-box">
+              <span class="privacy-icon">♢</span>
+              <div>
+                <strong>Your data is private and secure.</strong>
+                <span>We only use it to help you better.</span>
+              </div>
+            </div>
+
+            <button class="primary-btn" type="submit">
+              <span>Create Account</span>
+              <b>→</b>
+            </button>
+          </form>
+
+          <p class="switch-text">Already have an account?
+            <button class="link-btn" id="showLogin">Sign in</button>
+          </p>
+        </div>
+
+        <!-- LOGIN -->
+        <div class="auth-view hidden" id="loginView">
+          <h2>Welcome back!</h2>
+          <p class="intro">Sign in to continue your journey<br>towards a healthier mind.</p>
+
+          <form id="loginForm" novalidate>
+            <label class="field">
+              <span class="field-icon">✉</span>
+              <input type="email" id="loginEmail" placeholder="Email address" autocomplete="email">
+            </label>
+
+            <label class="field">
+              <span class="field-icon">♙</span>
+              <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password">
+              <button class="eye" type="button" data-target="loginPassword" aria-label="Show password">◉</button>
+            </label>
+
+            <div class="remember-row">
+              <label class="remember">
+                <input type="checkbox" id="rememberMe">
+                <span>Remember me</span>
+              </label>
+              <button class="forgot" type="button" id="forgotPassword">Forgot password?</button>
+            </div>
+
+            <button class="primary-btn" type="submit">
+              <span>Sign In</span>
+              <b>→</b>
+            </button>
+          </form>
+
+          <div class="social-area">
+            <div class="or"><span>or continue with</span></div>
+            <div class="social-buttons">
+              <button class="social facebook" type="button" data-provider="Facebook" aria-label="Continue with Facebook">f</button>
+              <button class="social gmail" type="button" data-provider="Gmail" aria-label="Continue with Gmail">M</button>
+              <button class="social discord" type="button" data-provider="Discord" aria-label="Continue with Discord">☁</button>
+            </div>
+          </div>
+
+          <p class="switch-text">Don't have an account?
+            <button class="link-btn" id="showSignup">Sign up</button>
+          </p>
+
+          <div class="quote">
+            <div class="quote-heart">♥</div>
+            <div>
+              <p>“Small steps today lead to a<br>healthier mind tomorrow.”</p>
+              <small>Take care of your mind. You matter.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="visual-panel">
+        <div class="illustration-glow"></div>
+        <img id="mainIllustration" src="assets/signup-illustration.svg" alt="ATIP-AI wellness illustration">
+      </div>
+    </section>
+
+    <footer class="features">
+      <div class="feature">
+        <div class="feature-icon">♡</div>
+        <strong>AI-Powered</strong>
+        <span>Emotional insights<br>in real-time</span>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">☼</div>
+        <strong>Stress Management</strong>
+        <span>Tools and activities<br>for a calm mind</span>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">▤</div>
+        <strong>Personalized</strong>
+        <span>Recommendations<br>just for you</span>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">♢</div>
+        <strong>Privacy First</strong>
+        <span>Your data stays<br>with you</span>
+      </div>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
